@@ -19,6 +19,73 @@
         .container { max-width: 1200px; margin: 0 auto; }
         a { color: inherit; text-decoration: none; }
         table { font-size: 14px; }
+        /* ======== Mobile Optimization ======== */
+@media (max-width: 768px) {
+  body {
+    padding: 12px !important;
+    background-attachment: scroll !important;
+  }
+  .container { max-width: 100% !important; }
+
+  /* 大きい余白を圧縮（スマホの画面を有効活用） */
+  [style*="padding: 40px"] { padding: 18px !important; }
+  [style*="padding: 50px 40px"] { padding: 28px 16px !important; }
+  [style*="margin-bottom: 40px"] { margin-bottom: 20px !important; }
+
+  /* タイトル周り */
+  h1 {
+    font-size: 32px !important;
+    line-height: 1.15 !important;
+    letter-spacing: 1px !important;
+  }
+  p[style*="font-size: 18px"] { font-size: 14px !important; }
+
+  /* グリッドを崩して縦積みに（カードが潰れるのを防ぐ） */
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  div[style*="grid-template-columns: repeat(6, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  div[style*="grid-template-columns: repeat(5, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  div[style*="grid-template-columns: repeat(2, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ロゴ＋QRなど「左右並び」を縦並びへ */
+  div[style*="display: flex"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 14px !important;
+  }
+
+  /* 推薦カードの拡大（はみ出し防止） */
+  div[style*="transform: scale(1.03)"] { transform: none !important; }
+
+  /* 表：文字・余白を少し詰めて横スクロールを滑らかに */
+  table { font-size: 12px !important; }
+  table th, table td { padding: 8px !important; }
+  div[style*="overflow-x: auto"] { -webkit-overflow-scrolling: touch; }
+}
+
+@media (max-width: 420px) {
+  /* さらに小さい端末は4列→1列へ */
+  div[style*="grid-template-columns: repeat(4, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+  h1 { font-size: 28px !important; }
+}
+
     </style>
 </head>
 <body>
@@ -1224,3 +1291,4 @@
 </div>
 </body>
 </html>
+
